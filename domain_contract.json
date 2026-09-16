@@ -1,0 +1,6 @@
+{
+  "project": "digital-andon-orchestrator",
+  "incident_states": ["open", "acknowledged", "mitigating", "monitoring", "closed"],
+  "playbook_steps": ["pending", "running", "waiting", "compensating", "completed", "failed"],
+  "control_owners": ["automation", "operator", "safety"]
+}
