@@ -1,0 +1,72 @@
+{
+  "playbooks": [
+    {
+      "id": "pb_drive_fault",
+      "name": "驱动线停机处置剧本",
+      "incident_type": "motion_line_down",
+      "auto_arm": true,
+      "steps": [
+        {
+          "id": "s1_safe_torque_off",
+          "name": "根因驱动器安全转矩断开",
+          "mode": "auto",
+          "action": "safe_torque_off",
+          "permit_action": "power",
+          "target": "root_cause",
+          "preconditions": ["fault_active", "no_interlock"],
+          "timeout_ms": 4000,
+          "on_timeout": "compensate",
+          "compensation": "engage_dynamic_brake",
+          "comp_permit_action": "power",
+          "description": "故障仍在且无联锁时，对根因驱动器下 STO；超时则投入动力制动"
+        },
+        {
+          "id": "s2_field_inspect",
+          "name": "现场检查驱动器与机械链路",
+          "mode": "manual",
+          "description": "值守员现场确认轴、编码器与输送线卡滞情况并回填"
+        },
+        {
+          "id": "s3_reset_drive",
+          "name": "驱动器复位",
+          "mode": "auto",
+          "action": "reset_drive",
+          "permit_action": "reset",
+          "target": "root_cause",
+          "preconditions": ["fault_cleared", "acknowledged"],
+          "timeout_ms": 5000,
+          "on_timeout": "compensate",
+          "compensation": "main_isolate",
+          "comp_permit_action": "power",
+          "description": "故障证据全部恢复且事件已确认后才允许复位；超时/失败则主回路隔离"
+        },
+        {
+          "id": "s4_restart_line",
+          "name": "线体复产",
+          "mode": "auto",
+          "action": "restart_line",
+          "permit_action": "start",
+          "target": "root_cause",
+          "preconditions": ["fault_cleared"],
+          "timeout_ms": 8000,
+          "on_timeout": "compensate",
+          "compensation": "safe_torque_off",
+          "comp_permit_action": "power",
+          "description": "复位成功后复产；复产失败立即回到 STO 安全位"
+        }
+      ]
+    },
+    {
+      "id": "pb_estop",
+      "name": "急停处置剧本(仅人工)",
+      "incident_type": "safety_estop",
+      "auto_arm": false,
+      "steps": [
+        {"id": "e1_verify_loop", "name": "核查急停回路与现场人员", "mode": "manual"},
+        {"id": "e2_release_estop", "name": "按规程释放急停", "mode": "manual"},
+        {"id": "e3_manual_reset", "name": "人工复位使能", "mode": "manual",
+         "description": "急停复位永远不允许自动执行，必须由人工逐步完成"}
+      ]
+    }
+  ]
+}

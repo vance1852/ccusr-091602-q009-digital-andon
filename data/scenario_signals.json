@@ -1,0 +1,29 @@
+[
+  {"ts": 60000, "device": "SERVO-A1", "code": "W2014", "payload": {"axis": "X1"}},
+  {"ts": 60100, "device": "SERVO-A1", "code": "E1001", "payload": {"axis": "X1"}},
+  {"ts": 60150, "device": "SERVO-A1", "code": "E1001", "payload": {"axis": "X1"}},
+  {"ts": 60180, "device": "SERVO-A1", "code": "E1001", "payload": {"axis": "X1"}},
+  {"ts": 60220, "device": "SERVO-A1", "code": "E1001", "payload": {"axis": "X1"}},
+
+  {"ts": 60300, "device": "ROBOT-A1", "code": "E4105"},
+  {"ts": 60350, "device": "CONV-A1", "code": "E3002"},
+  {"ts": 60420, "device": "VIS-A1", "code": "W5203", "payload": {"station": "VS1"}},
+
+  {"ts": 60500, "device": "SERVO-A1", "code": "E1002", "payload": {"axis": "X1"},
+   "severity": "critical"},
+  {"ts": 60600, "device": "SERVO-A1", "code": "E1001", "payload": {"axis": "X1"}},
+
+  {"ts": 60800, "device": "ROBOT-A1", "code": "C4106"},
+  {"ts": 60900, "device": "VIS-A1", "code": "C5204", "payload": {"station": "VS1"}},
+
+  {"ts": 62000, "device": "CONV-A1", "code": "C3002"},
+
+  {"ts": 63000, "device": "SERVO-A1", "code": "C1001", "payload": {"axis": "X1"}},
+
+  {"ts": 64000, "device": "ROBOT-A1", "code": "C4106"},
+
+  {"ts": 66000, "device": "SERVO-A1", "code": "E1001", "payload": {"axis": "X1"},
+   "severity": "high"},
+
+  {"ts": 67000, "device": "SERVO-A1", "code": "C1001", "payload": {"axis": "X1"}}
+]

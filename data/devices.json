@@ -1,0 +1,38 @@
+{
+  "versions": [
+    {
+      "version": "topo-2026-01",
+      "effective_from": 0,
+      "devices": [
+        {"id": "SERVO-A1", "name": "A线主驱动器", "unit": "cell-A", "kind": "drive",
+         "depends_on": [], "root_cause_eligible": true},
+        {"id": "CONV-A1", "name": "A线输送线", "unit": "cell-A", "kind": "conveyor",
+         "depends_on": ["SERVO-A1"], "root_cause_eligible": true},
+        {"id": "ROBOT-A1", "name": "A线机器人", "unit": "cell-A", "kind": "robot",
+         "depends_on": ["SERVO-A1"], "root_cause_eligible": false},
+        {"id": "VIS-A1", "name": "A线视觉站", "unit": "cell-A", "kind": "vision",
+         "depends_on": ["CONV-A1"], "root_cause_eligible": false},
+        {"id": "ESTOP-A1", "name": "A线急停回路", "unit": "cell-A", "kind": "safety",
+         "depends_on": [], "root_cause_eligible": true}
+      ]
+    },
+    {
+      "version": "topo-2026-09",
+      "effective_from": 1000000000000,
+      "devices": [
+        {"id": "SERVO-A1", "name": "A线主驱动器", "unit": "cell-A", "kind": "drive",
+         "depends_on": [], "root_cause_eligible": true},
+        {"id": "CONV-A1", "name": "A线输送线", "unit": "cell-A", "kind": "conveyor",
+         "depends_on": ["SERVO-A1"], "root_cause_eligible": true},
+        {"id": "ROBOT-A1", "name": "A线机器人", "unit": "cell-A", "kind": "robot",
+         "depends_on": ["SERVO-A1"], "root_cause_eligible": false},
+        {"id": "VIS-A1", "name": "A线视觉站", "unit": "cell-A", "kind": "vision",
+         "depends_on": ["CONV-A1"], "root_cause_eligible": false},
+        {"id": "VIS-A2", "name": "A线二号视觉站(新增)", "unit": "cell-A", "kind": "vision",
+         "depends_on": ["CONV-A1"], "root_cause_eligible": false},
+        {"id": "ESTOP-A1", "name": "A线急停回路", "unit": "cell-A", "kind": "safety",
+         "depends_on": [], "root_cause_eligible": true}
+      ]
+    }
+  ]
+}
