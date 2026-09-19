@@ -1,0 +1,107 @@
+{
+  "version": "alarm-map-2026.09.1",
+  "alarms": {
+    "DRV_OVERCURRENT": {
+      "device": "DRV-101",
+      "kind": "fault",
+      "severity": "critical",
+      "incident_type": "drive_fault",
+      "correlation_group": "line1-drive-chain",
+      "role": "root"
+    },
+    "DRV_OVERCURRENT_CLR": {
+      "device": "DRV-101",
+      "kind": "recovery",
+      "severity": "info",
+      "incident_type": "drive_fault",
+      "correlation_group": "line1-drive-chain",
+      "role": "root",
+      "clears": "DRV_OVERCURRENT"
+    },
+    "CNV_JAM": {
+      "device": "CNV-201",
+      "kind": "fault",
+      "severity": "major",
+      "incident_type": "drive_fault",
+      "correlation_group": "line1-drive-chain",
+      "role": "symptom"
+    },
+    "CNV_JAM_CLR": {
+      "device": "CNV-201",
+      "kind": "recovery",
+      "severity": "info",
+      "incident_type": "drive_fault",
+      "correlation_group": "line1-drive-chain",
+      "role": "symptom",
+      "clears": "CNV_JAM"
+    },
+    "RBT_STALL": {
+      "device": "RBT-301",
+      "kind": "fault",
+      "severity": "major",
+      "incident_type": "drive_fault",
+      "correlation_group": "line1-drive-chain",
+      "role": "symptom"
+    },
+    "RBT_STALL_CLR": {
+      "device": "RBT-301",
+      "kind": "recovery",
+      "severity": "info",
+      "incident_type": "drive_fault",
+      "correlation_group": "line1-drive-chain",
+      "role": "symptom",
+      "clears": "RBT_STALL"
+    },
+    "VIS_REJECT": {
+      "device": "VIS-401",
+      "kind": "fault",
+      "severity": "warning",
+      "incident_type": "drive_fault",
+      "correlation_group": "line1-drive-chain",
+      "role": "symptom"
+    },
+    "VIS_REJECT_CLR": {
+      "device": "VIS-401",
+      "kind": "recovery",
+      "severity": "info",
+      "incident_type": "drive_fault",
+      "correlation_group": "line1-drive-chain",
+      "role": "symptom",
+      "clears": "VIS_REJECT"
+    },
+    "VIS_LAMP_DIM": {
+      "device": "VIS-401",
+      "kind": "fault",
+      "severity": "warning",
+      "incident_type": "vision_lighting",
+      "correlation_group": "vision-lighting",
+      "role": "root"
+    },
+    "VIS_LAMP_OK": {
+      "device": "VIS-401",
+      "kind": "recovery",
+      "severity": "info",
+      "incident_type": "vision_lighting",
+      "correlation_group": "vision-lighting",
+      "role": "root",
+      "clears": "VIS_LAMP_DIM"
+    },
+    "VIS_LAMP_FAIL": {
+      "device": "VIS-401",
+      "kind": "fault",
+      "severity": "critical",
+      "incident_type": "vision_lighting",
+      "correlation_group": "vision-lighting",
+      "role": "root"
+    },
+    "VIS_LAMP_FAIL_CLR": {
+      "device": "VIS-401",
+      "kind": "recovery",
+      "severity": "info",
+      "incident_type": "vision_lighting",
+      "correlation_group": "vision-lighting",
+      "role": "root",
+      "clears": "VIS_LAMP_FAIL"
+    }
+  }
+}

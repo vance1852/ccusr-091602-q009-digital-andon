@@ -1,0 +1,16 @@
+{
+  "version": "topology-2026.09.1",
+  "effective_from": "2026-09-01T00:00:00Z",
+  "units": [
+    { "id": "UNIT-CONV", "name": "输送线" },
+    { "id": "UNIT-ROBOT", "name": "机器人站" },
+    { "id": "UNIT-VISION", "name": "视觉站" }
+  ],
+  "devices": [
+    { "id": "PSU-1", "unit": "UNIT-CONV", "depends_on": [] },
+    { "id": "DRV-101", "unit": "UNIT-CONV", "depends_on": ["PSU-1"] },
+    { "id": "CNV-201", "unit": "UNIT-CONV", "depends_on": ["DRV-101"] },
+    { "id": "RBT-301", "unit": "UNIT-ROBOT", "depends_on": ["DRV-101", "CNV-201"] },
+    { "id": "VIS-401", "unit": "UNIT-VISION", "depends_on": ["CNV-201"] }
+  ]
+}

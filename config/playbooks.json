@@ -1,0 +1,48 @@
+{
+  "version": "playbooks-2026.09.1",
+  "playbooks": {
+    "drive_fault": {
+      "playbook_id": "pb-drive-fault",
+      "permit_scope": "UNIT-CONV",
+      "steps": [
+        {
+          "id": "isolate",
+          "name": "切断驱动输出",
+          "kind": "automatic",
+          "action": "drive.isolate",
+          "requires_permit": true,
+          "timeout_seconds": 30,
+          "compensation": { "action": "drive.safe_state", "requires_permit": false }
+        },
+        {
+          "id": "inspect",
+          "name": "值守员现场检查",
+          "kind": "manual",
+          "timeout_seconds": 900
+        },
+        {
+          "id": "reset",
+          "name": "复位驱动器",
+          "kind": "automatic",
+          "action": "drive.reset",
+          "requires_permit": true,
+          "timeout_seconds": 30,
+          "preconditions": ["evidence_clear"],
+          "compensation": { "action": "drive.lockout", "requires_permit": false }
+        }
+      ]
+    },
+    "vision_lighting": {
+      "playbook_id": "pb-vision-lighting",
+      "permit_scope": "UNIT-VISION",
+      "steps": [
+        {
+          "id": "lamp_check",
+          "name": "值守员检查光源",
+          "kind": "manual",
+          "timeout_seconds": 600
+        }
+      ]
+    }
+  }
+}
